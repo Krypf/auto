@@ -11,8 +11,8 @@ interval="4";
 # echo "$_input"
 # Check if the input is ready and set the NAME_APP and PROCESS accordingly
 if [[ "$_input" == "brave" || "$_input" == "bb" ]]; then
-    NAME_APP="Brave Browser";
-    PROCESS="Brave Browser";
+    sh ~/auto/restart_brave.sh
+    exit 0
 elif [[ "$_input" == "firefox" || "$_input" == "ff" ]]; then
     NAME_APP="Firefox";
     PROCESS="Firefox";
