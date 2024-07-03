@@ -4,6 +4,12 @@ interval="2";
 # enter the file name
 FILE_PATH=$1
 
+# error 処理
+if [ -z "$LIBRARY_NAME" ]; then
+  echo "Usage: $0 <library_name>"
+  exit 1
+fi
+
 echo "Restarting $NAME_APP..."
 
 open "$APP_PATH"
