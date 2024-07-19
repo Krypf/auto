@@ -14,9 +14,8 @@ if [[ "$_input" == "brave" || "$_input" == "bb" ]]; then
     sh ~/auto/restart_brave.sh
     exit 0
 elif [[ "$_input" == "firefox" || "$_input" == "ff" ]]; then
-    NAME_APP="Firefox";
-    PROCESS="Firefox";
-    # interval="5";
+    sh ~/auto/restart_firefox.sh
+    exit 0
 elif [[ "$_input" == "deepl" || "$_input" == "ll" ]]; then
     NAME_APP="DeepL";
     PROCESS="DeepL";
