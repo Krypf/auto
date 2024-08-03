@@ -16,6 +16,9 @@ if [[ "$_input" == "brave" || "$_input" == "bb" ]]; then
 elif [[ "$_input" == "firefox" || "$_input" == "ff" ]]; then
     sh ~/auto/restart_firefox.sh
     exit 0
+elif [[ "$_input" == "code" || "$_input" == "vs" ]]; then
+    sh ~/auto/restart_vscode.sh
+    exit 0
 elif [[ "$_input" == "deepl" || "$_input" == "ll" ]]; then
     NAME_APP="DeepL";
     PROCESS="DeepL";
@@ -25,15 +28,9 @@ elif [[ "$_input" == "jabref" || "$_input" == "jj" ]]; then
     PROCESS="JabRef";
 
 elif [[ "$_input" == "word" || "$_input" == "ww" ]]; then
-#    NAME_APP="Microsoft Word";
-#    PROCESS="Microsoft Word";
-    sh ~/restart_word.sh
+    sh ~/auto/restart_word.sh
     exit 0
-elif [[ "$_input" == "code" || "$_input" == "vs" ]]; then
-#    NAME_APP="Visual Studio Code";
-#    PROCESS="Code";# not detected
-    sh restart_vscode.sh
-    exit 0
+
 else
     echo "Unsupported application: $_input"
     exit 1

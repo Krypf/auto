@@ -1,6 +1,7 @@
 NAME_APP="Firefox";
 APP_PATH="/Applications/$NAME_APP.app";
 interval="10";
+second_interval="40";
 
 # Function to check if the application is running
 is_app_running() {
@@ -14,9 +15,9 @@ if is_app_running; then
 	sleep "$interval"
 	echo "sleep $interval seconds..."
 	if is_app_running; then
-		# If the application is still running, wait 30 minutes
-		echo "$NAME_APP will restart after 30 seconds..."
-		sleep "30"
+		# If the application is still running, wait $second_interval minutes
+		echo "$NAME_APP will restart after $second_interval seconds..."
+		sleep "$second_interval"
 		echo "reboot"
 	fi
 	open "$APP_PATH"
