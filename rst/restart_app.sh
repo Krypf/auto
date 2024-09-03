@@ -11,13 +11,13 @@ interval="4";
 # echo "$_input"
 # Check if the input is ready and set the NAME_APP and PROCESS accordingly
 if [[ "$_input" == "brave" || "$_input" == "bb" ]]; then
-    sh ~/auto/restart_brave.sh
+    sh ~/auto/rst/restart_brave.sh
     exit 0
 elif [[ "$_input" == "firefox" || "$_input" == "ff" ]]; then
-    sh ~/auto/restart_firefox.sh
+    sh ~/auto/rst/restart_firefox.sh
     exit 0
 elif [[ "$_input" == "code" || "$_input" == "vs" ]]; then
-    sh ~/auto/restart_vscode.sh
+    sh ~/auto/rst/restart_vscode.sh
     exit 0
 elif [[ "$_input" == "deepl" || "$_input" == "ll" ]]; then
     NAME_APP="DeepL";
@@ -28,7 +28,7 @@ elif [[ "$_input" == "jabref" || "$_input" == "jj" ]]; then
     PROCESS="JabRef";
 
 elif [[ "$_input" == "word" || "$_input" == "ww" ]]; then
-    sh ~/auto/restart_word.sh
+    sh ~/auto/rst/restart_word.sh
     exit 0
 
 else

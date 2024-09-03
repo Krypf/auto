@@ -1,7 +1,6 @@
-NAME_APP="Firefox";
+NAME_APP="Brave Browser";
 APP_PATH="/Applications/$NAME_APP.app";
 interval="10";
-second_interval="40";
 
 # Function to check if the application is running
 is_app_running() {
@@ -10,16 +9,19 @@ is_app_running() {
 
 # Check if the application is running
 if is_app_running; then
-    # Execute Firefox_Option_Command_Q_Enter.scpt
-    osascript ~/auto/Firefox_Option_Command_Q_Enter.scpt
+	sh ~/auto/rst/run_double_command_q_browser.sh "$NAME_APP"
 	sleep "$interval"
 	echo "sleep $interval seconds..."
 	if is_app_running; then
-		# If the application is still running, wait $second_interval minutes
-		echo "$NAME_APP will restart after $second_interval seconds..."
-		sleep "$second_interval"
+		# If the application is still running, wait 30 minutes
+		echo "$NAME_APP will restart after 30 seconds..."
+		sleep "30"
 		echo "reboot"
 	fi
 	open "$APP_PATH"
 	echo "$NAME_APP restarted successfully."
+else 
+	echo "Brave Browser is not active."
 fi
+
+

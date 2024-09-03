@@ -8,4 +8,4 @@ fi
 
 BROWSER_NAME=$1
 
-osascript ~/auto/DoubleCommandQBrowser.scpt "$BROWSER_NAME"
+osascript ~/auto/rst/DoubleCommandQBrowser.scpt "$BROWSER_NAME"

@@ -14,7 +14,7 @@ echo "Restarting $NAME_APP..."
 
 open "$APP_PATH"
 sleep 0.3
-osascript "auto/word_save_enter.scpt"
+osascript "~/auto/rst/word_save_enter.scpt"
 
 osascript -e 'quit app "Microsoft Word"'
 
