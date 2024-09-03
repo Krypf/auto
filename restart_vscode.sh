@@ -1,6 +1,6 @@
 NAME_APP="Visual Studio Code"
 APP_PATH="/Applications/$NAME_APP.app"
-interval="5";
+interval="10";
 
 echo "Restarting $NAME_APP..."
 
