@@ -3,37 +3,67 @@ from random import shuffle
 import secrets
 import string
 import clipboard
-from arguments import get_args
-
-#%% 
+from arguments import get_args, num_digits, alphabets, prefix, inter, symbol, duplication
+#%%
 class Fireworks:# KeyShop
-    def __init__(self, n: int, a: int, pre: str, symbol: str):
-        self.num_digits = n
-        self.alphabets = a
-        self.prefix = pre
+    def __init__(self, num_digits: int, alphabets: int, prefix: str, inter: str, symbol: str, duplication=False):
+        self.num_digits = num_digits
+        self.alphabets = alphabets
+        self.prefix = prefix
+        self.inter = inter
         self.symbol = symbol
+        self.duplication= duplication
         
     def generate_password(self):
-        Numbers = string.digits
         Alphabets = string.ascii_lowercase + string.ascii_uppercase
-        x = eliminate_duplication(Numbers, self.num_digits) + select_password_elements(Alphabets, self.alphabets) + self.symbol
-        # print(x)
-        X = list(x)# list made 
-        shuffle(X)
-        X = self.prefix + ''.join(X)
-        return X
+        # abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+        if self.duplication:
+            Numbers = string.digits # 0123456789
+            x = select_password_elements(Numbers, self.num_digits)
+        else:
+            x = self.num_wo_duplication()
+        x = x + select_password_elements(Alphabets, self.alphabets) + self.symbol
+        x_list = list(x); shuffle(x_list);
+        x = ''.join(x_list)
+        x = self.prefix + self.inter + x
+        return x
     
+    def num_wo_duplication(self):
+        Numbers = string.digits # 0123456789
+        m = 0 # match
+        n = self.num_digits # setting
+        if n > 10:
+            exit("The number of digits too large")
+        x = str() # answer
+        print("Generate digits all different from each other: (ans, new)")
+        while m < n:
+            num_this_time = n - m
+            num_str = select_password_elements(Numbers, num_this_time)
+            print((x, num_str), end=" -> ")
+            x += ''.join(set(num_str))# add num_str to x
+            x = ''.join(set(x))# eliminate duplication of the new number
+            m = len(x)
+        print('Numbers without duplication generated.')
+        return x
+
     def initialize_args(self, args):
+        if not any(vars(args).values()):
+            print("INFO: Default arguments.")
         if args.num_digits:
             self.num_digits = args.num_digits
         if args.alphabets:
             self.alphabets = args.alphabets
         if args.prefix:
             self.prefix = args.prefix
+        if args.inter:
+            self.inter = args.inter
         if args.symbol:
             self.symbol = args.symbol
-        else:
-            print("Default arguments.")
+        if args.duplication:
+            self.duplication = args.duplication
+            print("INFO: Numbers can duplicate.")
+                        
+        print('args:', self.__dict__)
         return self
 
 """
@@ -46,16 +76,6 @@ Classification of LiteralString
 def select_password_elements(L, n: int):
     # sum([choice(L) for j in range(n)],"") sum() can't sum strings. Use ''.join(seq) instead.
     return ''.join([secrets.choice(L) for _ in range(n)])
-#%%
-def eliminate_duplication(Numbers, n: int):
-    print('Numbers without duplication are:')
-    m = 0
-    while m < n:
-        num_str = select_password_elements(Numbers, n)
-        m = len(set(num_str))
-        print(m, num_str)
-    return num_str
-
 
 #%%
 def main(obj: Fireworks, args):
@@ -68,7 +88,13 @@ def main(obj: Fireworks, args):
     print(X)
 
 if __name__ == '__main__':
-    key_symbol = Fireworks(n=5, a=5, pre='=', symbol='!#@?')
-    # make_numbers = Fireworks(n=14, a=0, pre='', symbol='_')
+    key_symbol = Fireworks(
+        num_digits=num_digits, 
+        alphabets=alphabets, 
+        prefix=prefix, 
+        inter=inter, 
+        symbol=symbol,
+        duplication=duplication
+    )
     args = get_args()
     main(key_symbol, args)
