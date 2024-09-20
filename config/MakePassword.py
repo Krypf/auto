@@ -3,10 +3,10 @@ from random import shuffle
 import secrets
 import string
 import clipboard
-from arguments import get_args, num_digits, alphabets, prefix, inter, symbol, duplication
+from arguments import get_args, num_digits, alphabets, prefix, inter, symbol
 #%%
 class Fireworks:# KeyShop
-    def __init__(self, num_digits: int, alphabets: int, prefix: str, inter: str, symbol: str, duplication=False):
+    def __init__(self, num_digits: int, alphabets: int, prefix: str, inter: str, symbol: str, duplication: bool=False):
         self.num_digits = num_digits
         self.alphabets = alphabets
         self.prefix = prefix
@@ -17,14 +17,16 @@ class Fireworks:# KeyShop
     def generate_password(self):
         Alphabets = string.ascii_lowercase + string.ascii_uppercase
         # abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
-        if self.duplication:
+        if self.duplication is True:
             Numbers = string.digits # 0123456789
             x = select_password_elements(Numbers, self.num_digits)
-        else:
+        elif self.duplication is False:
             x = self.num_wo_duplication()
+        # Letters
         x = x + select_password_elements(Alphabets, self.alphabets) + self.symbol
         x_list = list(x); shuffle(x_list);
         x = ''.join(x_list)
+        # Complementary information
         x = self.prefix + self.inter + x
         return x
     
@@ -57,10 +59,11 @@ class Fireworks:# KeyShop
             self.prefix = args.prefix
         if args.inter:
             self.inter = args.inter
-        if args.symbol:
+        if args.symbol is not None:
             self.symbol = args.symbol
-        if args.duplication:
-            self.duplication = args.duplication
+        # True or False
+        self.duplication = args.duplication
+        if args.duplication is True:
             print("INFO: Numbers can duplicate.")
                         
         print('args:', self.__dict__)
@@ -95,6 +98,5 @@ if __name__ == '__main__':
         prefix=prefix, 
         inter=inter, 
         symbol=symbol,
-        duplication=duplication
     )
     main(key_symbol)

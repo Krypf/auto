@@ -7,7 +7,7 @@ def get_args():
     parser.add_argument('-a', '--alphabets', type=int, help='Number of alphabets')
     parser.add_argument('-p', '--prefix', type=str, help='Prefix strings')
     parser.add_argument('-i', '--inter', type=str, help='Intermediate symbols')
-    parser.add_argument('-s', '--symbol', type=str, help='Symbol strings')
+    parser.add_argument('-s', '--symbol', type=str, help='Symbol strings [If no argument is given, it returns the constant empty string \'\'.]', nargs='?', const='')
     parser.add_argument('-d', '--duplication', action='store_true', help='Enable duplication of numbers')
     
     args = parser.parse_args()
@@ -29,7 +29,7 @@ alphabets = int(os.getenv('ALPHABETS'))
 prefix = os.getenv('PREFIX')
 inter = os.getenv('INTER')
 symbol = os.getenv('SYMBOL')
-duplication = os.getenv('DUPLICATION')
+# duplication = os.getenv('DUPLICATION')# True or False
 
 def main():
     args = get_args()
@@ -39,6 +39,7 @@ def main():
     print(f"Prefix: {args.prefix}")
     print(f"Intermediate: {args.inter}")
     print(f"Symbol: {args.symbol}")
+    print(f"Duplication: {args.duplication}")
 
 if __name__ == "__main__":
     main()

@@ -28,8 +28,7 @@ recent.sh opens an arXiv page.
 ## MakePassword
 
 ```
-usage: MakePassword.py [-h] [-n NUM_DIGITS] [-a ALPHABETS] [-p PREFIX]
-                       [-i INTER] [-s SYMBOL] [-d]
+usage: MakePassword.py [-h] [-n NUM_DIGITS] [-a ALPHABETS] [-p PREFIX] [-i INTER] [-s [SYMBOL]] [-d]
 
 Process optional arguments.
 
@@ -40,11 +39,11 @@ options:
   -a ALPHABETS, --alphabets ALPHABETS
                         Number of alphabets
   -p PREFIX, --prefix PREFIX
-                        Prefix string
+                        Prefix strings
   -i INTER, --inter INTER
-                        Intermediate symbol
-  -s SYMBOL, --symbol SYMBOL
-                        Symbol string
+                        Intermediate symbols
+  -s [SYMBOL], --symbol [SYMBOL]
+                        Symbol strings [If no argument is given, it returns the constant empty string ''.]
   -d, --duplication     Enable duplication of numbers
 ```
 
