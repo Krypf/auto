@@ -55,7 +55,7 @@ options:
 
 DeepL translation
 
-* generate_password(self)`関数でパスワードを生成できます。
+* `generate_password(self)` 関数でパスワードを生成できます。
 * パスワードの長さは自由に変更できます。
 * 許可された `Prefix strings`, `Intermediate symbols`, `Symbol strings` のどれでも使用可能です。
 * 重複のない数字が必要ない場合は、オプション `-d, --duplication` をオンにして、重複が OK であることを宣言する必要があります。それ以外は、数字の重複を禁止します。

@@ -31,8 +31,9 @@ inter = os.getenv('INTER')
 symbol = os.getenv('SYMBOL')
 duplication = os.getenv('DUPLICATION')
 
-def main(args):
-    # Example: print the values of the arguments
+def main():
+    args = get_args()
+    print('Example: print the values of the arguments')
     print(f"Digits: {args.num_digits}")
     print(f"Alphabets: {args.alphabets}")
     print(f"Prefix: {args.prefix}")
@@ -40,5 +41,4 @@ def main(args):
     print(f"Symbol: {args.symbol}")
 
 if __name__ == "__main__":
-    args = get_args()
-    main(args)
+    main()

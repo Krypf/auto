@@ -73,12 +73,13 @@ Classification of LiteralString
 * string.digits
 * string.punctuation
 """
-def select_password_elements(L, n: int):
+def select_password_elements(L, num_select: int):
     # sum([choice(L) for j in range(n)],"") sum() can't sum strings. Use ''.join(seq) instead.
-    return ''.join([secrets.choice(L) for _ in range(n)])
+    return ''.join([secrets.choice(L) for _ in range(num_select)])
 
 #%%
-def main(obj: Fireworks, args):
+def main(obj: Fireworks):
+    args = get_args()
     #get the password with symbols & prefix options
     obj = obj.initialize_args(args)
     X = obj.generate_password()
@@ -96,5 +97,4 @@ if __name__ == '__main__':
         symbol=symbol,
         duplication=duplication
     )
-    args = get_args()
-    main(key_symbol, args)
+    main(key_symbol)
