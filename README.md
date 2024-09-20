@@ -23,4 +23,68 @@ start.sh opens frequently used applications at once after the computer has start
 recent.sh は arXiv のページを開きます。  
 recent.sh opens an arXiv page.
 
+# config
 
+## MakePassword
+
+```
+usage: MakePassword.py [-h] [-n NUM_DIGITS] [-a ALPHABETS] [-p PREFIX]
+                       [-i INTER] [-s SYMBOL] [-d]
+
+Process optional arguments.
+
+options:
+  -h, --help            show this help message and exit
+  -n NUM_DIGITS, --num_digits NUM_DIGITS
+                        Number of digits
+  -a ALPHABETS, --alphabets ALPHABETS
+                        Number of alphabets
+  -p PREFIX, --prefix PREFIX
+                        Prefix string
+  -i INTER, --inter INTER
+                        Intermediate symbol
+  -s SYMBOL, --symbol SYMBOL
+                        Symbol string
+  -d, --duplication     Enable duplication of numbers
+```
+
+* You can generate a password by the `generate_password(self)` function.
+* You can change the length of the password however you like.
+* You can use any permitted `Prefix strings`, `Intermediate symbols`, and `Symbol strings`
+* If you don't need numbers without duplication, you should turn on the option `-d, --duplication`. Otherwise, duplication of numbers is forbidden.
+
+DeepL translation
+
+* generate_password(self)`関数でパスワードを生成できます。
+* パスワードの長さは自由に変更できます。
+* 許可された `Prefix strings`, `Intermediate symbols`, `Symbol strings` のどれでも使用可能です。
+* 重複のない数字が必要ない場合は、オプション `-d, --duplication` をオンにして、重複が OK であることを宣言する必要があります。それ以外は、数字の重複を禁止します。
+
+## links
+
+1.  https://docs.python.org/ja/3/library/string.html
+1.  https://www.python.org/dev/peps/pep-0506/
+
+## Probability of the same number appearing
+
+The probability of the same number appearing can be calculated as follows.
+
+```python
+y = 1
+for N in range(10):
+    for j in range(N):
+        y *= (10 - j) / 10 
+    print(N, 1 - y)
+"""
+0 0
+1 0.0
+2 0.09999999999999998
+3 0.35199999999999987
+4 0.6734079999999999
+5 0.9012385792
+6 0.98506727317504
+7 0.9990968686816264
+8 0.9999836135853595
+9 0.9999999405369786
+"""
+```
