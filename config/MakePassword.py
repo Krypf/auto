@@ -57,7 +57,7 @@ class Fireworks:# KeyShop
             self.alphabets = args.alphabets
         if args.prefix:
             self.prefix = args.prefix
-        if args.inter:
+        if args.inter is not None:
             self.inter = args.inter
         if args.symbol is not None:
             self.symbol = args.symbol

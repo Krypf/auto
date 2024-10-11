@@ -6,7 +6,7 @@ def get_args():
     parser.add_argument('-n', '--num_digits', type=int, help='Number of digits')
     parser.add_argument('-a', '--alphabets', type=int, help='Number of alphabets')
     parser.add_argument('-p', '--prefix', type=str, help='Prefix strings')
-    parser.add_argument('-i', '--inter', type=str, help='Intermediate symbols')
+    parser.add_argument('-i', '--inter', type=str, help='Intermediate symbols  [If no argument is given, it returns the constant empty string \'\'.]', nargs='?', const='')
     parser.add_argument('-s', '--symbol', type=str, help='Symbol strings [If no argument is given, it returns the constant empty string \'\'.]', nargs='?', const='')
     parser.add_argument('-d', '--duplication', action='store_true', help='Enable duplication of numbers')
     
