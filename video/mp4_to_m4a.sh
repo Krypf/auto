@@ -30,6 +30,7 @@ for file in "$TARGET_DIR"/*.mp4; do
     new_file="$TARGET_DIR/$base_name.m4a"
     
     # ファイルの名前を変更（コピーを生成）
+    # オプション変数でメタデータを保存
     cp -p "$file" "$new_file"
     echo "Generated: $new_file"
 done
