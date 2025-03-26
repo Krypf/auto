@@ -12,16 +12,19 @@ if is_app_running; then
 	sh ~/auto/rst/run_double_command_q_browser.sh "$NAME_APP"
 	sleep "$interval"
 	echo "sleep $interval seconds..."
-	if is_app_running; then
-		# If the application is still running, wait 30 minutes
-		echo "$NAME_APP will restart after 30 seconds..."
-		sleep "30"
+	while is_app_running; do
+		# If the application is still running, wait $interval seconds
+		echo "$NAME_APP will restart after $interval seconds..."
+		sleep "$interval"
+	done
+	if ! is_app_running; then
 		echo "reboot"
+		open "$APP_PATH"
+		sleep "1"
+		if is_app_running; then
+		echo "$NAME_APP restarted successfully."
+		fi
 	fi
-	open "$APP_PATH"
-	echo "$NAME_APP restarted successfully."
-else 
-	echo "Brave Browser is not active."
+else
+	echo "$NAME_APP is not active."
 fi
-
-
