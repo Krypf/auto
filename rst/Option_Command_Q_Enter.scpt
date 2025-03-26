@@ -1,4 +1,5 @@
 -- https://chatgpt.com/share/c18650d4-2bb1-4336-b333-8d0aaa598d25
+-- https://chatgpt.com/share/67e4758c-f89c-800e-add3-445cc62a947e
 -- This script activates one application (Firefox, BetterTouchTool), sends the shortcut Option + Command + Q to close all windows or quit the app, waits for a second, and then presses Enter to confirm the action.
 
 on run argv
