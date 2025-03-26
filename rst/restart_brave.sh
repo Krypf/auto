@@ -9,7 +9,8 @@ is_app_running() {
 
 # Check if the application is running
 if is_app_running; then
-	sh ~/auto/rst/run_double_command_q_browser.sh "$NAME_APP"
+	# sh ~/auto/rst/run_double_command_q_browser.sh "$NAME_APP"
+	osascript ~/auto/rst/DoubleCommandQBrowser.scpt $NAME_APP
 	sleep "$interval"
 	echo "sleep $interval seconds..."
 	while is_app_running; do
