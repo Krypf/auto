@@ -1,7 +1,7 @@
 NAME_APP="Firefox";
 APP_PATH="/Applications/$NAME_APP.app";
-interval="10";
-second_interval="40";
+interval="15";
+second_interval="35";
 
 # Function to check if the application is running
 is_app_running() {
@@ -14,12 +14,19 @@ if is_app_running; then
     osascript ~/auto/rst/Firefox_Option_Command_Q_Enter.scpt
 	sleep "$interval"
 	echo "sleep $interval seconds..."
-	if is_app_running; then
-		# If the application is still running, wait $second_interval minutes
+	while is_app_running; do
+		# If the application is still running, wait $second_interval seconds
 		echo "$NAME_APP will restart after $second_interval seconds..."
 		sleep "$second_interval"
+	done
+	if ! is_app_running; then
 		echo "reboot"
+		open "$APP_PATH"
+		sleep "1"
+		if is_app_running; then
+		echo "$NAME_APP restarted successfully."
+		fi
 	fi
-	open "$APP_PATH"
-	echo "$NAME_APP restarted successfully."
+else
+	echo "$NAME_APP is not active."
 fi
