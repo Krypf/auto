@@ -4,7 +4,7 @@ on run {browserName}
     tell application browserName to activate
     delay 0.5
     tell application "System Events"
-        -- Command + Q を2回送信
+        -- Sending Command + Q twice
         key down command
         keystroke "q"
         delay 0.1
