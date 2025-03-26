@@ -11,7 +11,7 @@ is_app_running() {
 # Check if the application is running
 if is_app_running; then
     # Execute Firefox_Option_Command_Q_Enter.scpt
-    osascript ~/auto/rst/Firefox_Option_Command_Q_Enter.scpt
+    osascript ~/auto/rst/Option_Command_Q_Enter.scpt $NAME_APP
 	sleep "$interval"
 	echo "sleep $interval seconds..."
 	while is_app_running; do
