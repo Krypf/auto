@@ -1,11 +1,23 @@
 # rst/
 
-The main code is restart_app.sh.  
+The main code is `rst/restart_browser.sh`.  
+
 よく使うアプリを再起動するためのフォルダです。  
 > This is a folder for restarting frequently used applications.
 
+* ブラウザ
+* VSCode
+* Word
+* JabRef
+
 rst は restart の頭文字です。  
 > rst is an acronym for restart.
+
+* 2024年7月4日 木曜日 3:39 rst/restart_brave.sh を作成
+* 2024年7月19日 金曜日 22:34 rst/restart_firefox.sh を作成 
+* 2025年3月8日 土曜日 17:38 rst/restart_browser.sh を作成 (上2つを統合)
+
+設定は config/*.env に保存してあります。
 
 # Sleep
 

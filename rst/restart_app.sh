@@ -10,13 +10,7 @@ interval="4";
 
 # echo "$_input"
 # Check if the input is ready and set the NAME_APP and PROCESS accordingly
-if [[ "$_input" == "brave" || "$_input" == "bb" ]]; then
-    sh ~/auto/rst/restart_brave.sh
-    exit 0
-elif [[ "$_input" == "firefox" || "$_input" == "ff" ]]; then
-    sh ~/auto/rst/restart_firefox.sh
-    exit 0
-elif [[ "$_input" == "code" || "$_input" == "vs" ]]; then
+if [[ "$_input" == "code" || "$_input" == "vs" ]]; then
     sh ~/auto/rst/restart_vscode.sh
     exit 0
 elif [[ "$_input" == "deepl" || "$_input" == "ll" ]]; then
