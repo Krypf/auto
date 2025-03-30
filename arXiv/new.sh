@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
+# https://chatgpt.com/share/67dc7d32-bd40-800e-b215-db0358aa5e99
 
 # Define the list of categories
 categories=(hep-th gr-qc math-ph quant-ph hep-ph astro-ph cond-mat)
