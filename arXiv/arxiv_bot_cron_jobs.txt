@@ -1,0 +1,5 @@
+30 13 * * mon cd ~/arxiv_bot ; /bin/sh run.sh
+35 13 * * tue cd ~/arxiv_bot ; /bin/sh run.sh
+40 13 * * wed cd ~/arxiv_bot ; /bin/sh run.sh
+45 13 * * thu cd ~/arxiv_bot ; /bin/sh run.sh
+50 13 * * fri cd ~/arxiv_bot ; /bin/sh run.sh
