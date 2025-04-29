@@ -1,8 +1,7 @@
 SHELL=/bin/zsh
-0 23 * * * osascript -e 'tell application "Spark" to activate'
-1 23 * * * sh $HOME/auto/open/mail.sh
-0 10 * * * osascript -e 'tell application "Spark" to activate'
-0 16 * * * osascript -e 'tell application "Spark" to activate'
+0 23 * * * sh $HOME/auto/open/mail.sh
+0 14 * * * sh $HOME/auto/open/mail.sh
+0 16 * * * sh $HOME/auto/open/mail.sh
 30 13 * * mon cd ~/arxiv_bot ; /bin/sh run.sh
 31 13 * * tue cd ~/arxiv_bot ; /bin/sh run.sh
 32 13 * * wed cd ~/arxiv_bot ; /bin/sh run.sh
