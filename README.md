@@ -129,6 +129,12 @@ Wi-Fi の SSID とパスワードを `~/auto/wifi/args.env` に保存するこ�
 
 `open/mail.sh` はメール確認です。
 
+* Outlook
+* Slack
+* Spark (デフォルトメーラー)
+
+を開きます。Slack については、Slack.env に URL を打ち込みます。
+
 ## Weather News
 
 Firefox で Weather News を開くプログラムです。
