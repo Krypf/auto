@@ -122,3 +122,69 @@ Wi-Fi のテザリングを手動で設定するのがめんどくさすぎる�
 3. テザリングを１度試行した後、つながるまで 10 回接続プログラムを繰り返します。
 
 Wi-Fi の SSID とパスワードを `~/auto/wifi/args.env` に保存することで、プログラムが設定を Shell script に渡すことができます。
+
+# open/
+
+何かを開くためのコードです。
+
+`open/mail.sh` はメール確認です。
+
+## Weather News
+
+Firefox で Weather News を開くプログラムです。
+
+４年ぶりの利用でいろいろ更新しました。
+
+* ライブラリをダウンデートした。
+
+```
+MacBookPro: ~ 25-04-22 19:15:38
+% pip uninstall selenium
+pip install selenium==4.9.0
+```
+
+* geckodriver をアップデートした。
+
+geckodriver のバージョンが古すぎて動きませんでした。従って、アップデートしました。
+
+> https://github.com/mozilla/geckodriver/releases/tag/v0.29.1
+> geckodriver-v0.29.1-macos.tar.gz
+
+
+```
+MacBookPro: ~ 25-04-22 19:25:30
+% geckodriver --version
+```
+
+```
+geckodriver 0.29.1 (970ef713fe58 2021-04-08 23:34 +0200)
+
+The source code of this program is available from
+testing/geckodriver in https://hg.mozilla.org/mozilla-central.
+
+This program is subject to the terms of the Mozilla Public License 2.0.
+You can obtain a copy of the license at https://mozilla.org/MPL/2.0/.
+```
+
+圧縮ファイルをダウンロードしました。
+
+> https://github.com/mozilla/geckodriver/releases/tag/v0.36.0
+
+```
+cd ~/Downloads
+tar -xzf geckodriver-v0.36.0-macos.tar.gz
+sudo mv geckodriver /usr/local/bin/
+sudo chmod +x /usr/local/bin/geckodriver
+```
+
+なぜ導入し直したかというと、今月 Firefox で Weather News の表示が崩れだしたからです。
+
+独立アプリとして driver から webページを開くときれいに表示されました。
+
+(4 月 25 日頃に 表示崩れがなくなりました。メンテナンスもその後にあったようです。)
+
+# shop/
+
+買い物のまとめ検索ができます。
+
+今のところヨドバシとアマゾンに対応しています。
