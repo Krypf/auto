@@ -1,14 +1,11 @@
-# %% open "today and tomorrow" in Firefox
-import time
-
-from selenium import webdriver
-from selenium.webdriver.firefox.service import Service
+# %% open "today and tomorrow" of Weather News in Firefox
 from selenium.webdriver.common.by import By
 import os
 import sys
 from dotenv import load_dotenv
+from open_firefox import open_firefox
 
-
+import time
 
 def switch_weather_tab(driver, mode: str):
     """
@@ -33,23 +30,8 @@ def main():
     load_dotenv(dotenv_path="open/weather.env")
     location = os.getenv("WEATHER_LOCATION")
     weather_url = os.getenv(f"WEATHER_URL_{location}")
-
-    extensions_dirpath = os.path.expanduser(os.getenv("EXTENSIONS_PATH"))
-    extensions = [
-        os.path.join(extensions_dirpath, os.getenv("EXTENSION_1")),
-        os.path.join(extensions_dirpath, os.getenv("EXTENSION_2")),
-    ]
-
-    # Launch Firefox
-    options = webdriver.FirefoxOptions()
-    service = Service(executable_path='/usr/local/bin/geckodriver')
-    driver = webdriver.Firefox(options=options, service=service)
-    # confer
-    # https://www.selenium.dev/ja/documentation/webdriver/browsers/firefox/
     
-    for extension in extensions:
-        driver.install_addon(extension, temporary=True)
-
+    driver = open_firefox()
     driver.get(weather_url)
     driver.switch_to.window(driver.window_handles[0])
 
