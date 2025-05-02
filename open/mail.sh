@@ -1,4 +1,4 @@
-source open/slack.env
-open https://outlook.office.com/
-open $SLACK_URL
-open /Applications/Spark.app
+source open/mail.env
+open $APP1
+open "$APP2"
+open $APP3
