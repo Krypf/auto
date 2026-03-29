@@ -1,6 +1,6 @@
 -- https://chatgpt.com/share/c18650d4-2bb1-4336-b333-8d0aaa598d25
 -- https://chatgpt.com/share/67e4758c-f89c-800e-add3-445cc62a947e
--- This script activates one application (Firefox, BetterTouchTool), sends the shortcut Option + Command + Q to close all windows or quit the app, waits for a second, and then presses Enter to confirm the action.
+-- This script activates one application (Firefox), sends the shortcut Command + Q to close all windows or quit the app, waits for a second, and then presses Enter to confirm the action.
 
 on run argv
     set appName to item 1 of argv
@@ -9,7 +9,7 @@ on run argv
     delay 0.3 -- Wait for activation
 
     tell application "System Events"
-        -- Send Option + Command + Q
+        -- Send Command + Q
         keystroke "q" using {command down}
 
         -- Wait for a short moment (e.g., 1 second) to ensure the confirmation dialog appears
