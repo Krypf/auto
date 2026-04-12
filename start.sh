@@ -1,4 +1,4 @@
-open "/System/Applications/Outlook.app"
+open "/System/Applications/Microsoft Outlook.app"
 sleep "3"
 open "/Applications/Visual Studio Code.app"
 sleep "5"
