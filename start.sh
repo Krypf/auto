@@ -1,9 +1,14 @@
-open "/System/Applications/Microsoft Outlook.app"
-sleep "3"
-open "/Applications/Visual Studio Code.app"
-sleep "5"
-open "/Applications/Zotero.app"
-sleep "5"
-open "/Applications/Brave Browser.app"
-sleep "10"
-open "/Applications/Safari.app"
+#!/bin/zsh
+# Add or remove apps from the list below
+apps=(
+"Microsoft Outlook"
+"Visual Studio Code"
+"Zotero"
+"Brave Browser"
+"Safari"
+)
+
+for app in "${apps[@]}"; do
+    open -a "$app"
+    sleep 3
+done
