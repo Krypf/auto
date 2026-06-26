@@ -31,7 +31,7 @@ for app in "${apps[@]}"; do
   # if open "$app_path" 2>/dev/null; then
   if osascript -e "tell application \"$app\" to launch" 2>/dev/null; then
     sleep 0.3
-    echo "Opened: $app ($app_path)"
+    # echo "Opened: $app ($app_path)"
   else
     echo "Error: '$app' could not be launched"
   fi
